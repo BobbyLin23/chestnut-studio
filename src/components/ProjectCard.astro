@@ -1,0 +1,51 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  url: string;
+  image: string;
+}
+
+const { name, description, url, image } = Astro.props;
+---
+
+<div
+  class="flex flex-col justify-between gap-5"
+  rounded-2xl
+  bg-zinc-1
+  dark:bg-zinc-800:60
+  p-5
+>
+  <div>
+    <img src={image} alt="images" w-12 h-12 rounded-xl />
+    <h3 text-lg font-medium mt-4>
+      {name}
+    </h3>
+    <p mt-2 text-zinc-4 dark:text-zinc-500 leading-5>
+      {description}
+    </p>
+  </div>
+  <div>
+    <a
+      href={url}
+      target="_blank"
+      h-10
+      inline-flex
+      items-center
+      rounded-xl
+      px-3
+      bg-zinc-2
+      dark:bg-zinc-7:50
+      font-medium
+      hover:bg-zinc-3
+      dark:hover:bg-zinc-7
+      transition-colors
+      gap-1
+      text-zinc-400
+      hover:text-white
+    >
+      <span i-mdi-web></span>
+      <span>Web</span>
+    </a>
+  </div>
+</div>

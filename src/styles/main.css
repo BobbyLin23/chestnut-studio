@@ -1,0 +1,9 @@
+html,
+body {
+  height: 100%;
+}
+
+.dark {
+  background-color: #18181b;
+  color: #fff;
+}

@@ -1,11 +1,77 @@
 ---
+import "../styles/main.css";
+import ProjectCard from "../components/ProjectCard.astro";
+import Footer from "../components/Footer.astro";
+import ThemeToggle from "../components/ThemeToggle";
 
+const projectList = [
+  {
+    name: "Loopy",
+    description: "Your best running partner!",
+    url: "https://loopy.app",
+    image: "https://api.iconify.design/fluent-emoji:man-running.svg",
+  },
+  {
+    name: "Jarvis",
+    description: "Your AI smart assistant.",
+    url: "https://jarvis.app",
+    image: "https://api.iconify.design/logos:airtable.svg",
+  },
+  {
+    name: "Chatbox",
+    description: "AI conversation front-end practice.",
+    url: "https://chatbox.app",
+    image: "https://api.iconify.design/logos:atlassian.svg",
+  },
+  {
+    name: "Cryptopia",
+    description: "Cryptocurrency market analysis assistant.",
+    url: "https://cryptopia.app",
+    image: "https://api.iconify.design/logos:bitnami.svg",
+  },
+];
 ---
 
-<main text-2xl font-bold text-red>
-	hello
-</main>
+<section max-w-screen-sm mx-auto p-5>
+  <ThemeToggle client:only />
+  <header mt-10 md:mt-20>
+    <div class="flex items-center justify-center gap-5">
+      <img
+        w-10
+        h-10
+        src="https://api.iconify.design/streamline-emojis:chestnut.svg"
+        alt="logo"
+      />
+      <h1 text-4xl font-extrabold text-amber-9>Chestnut Studio</h1>
+    </div>
+    <p
+      text-center
+      text-zinc-400
+      dark:text-zinc-500
+      mt-4
+      mx-auto
+      max-w-sm
+      leading-5
+    >
+      A indie software and technology studio making delightful and inclusive
+      products.
+    </p>
+  </header>
+  <main my-14>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      {
+        projectList.map((project) => (
+          <ProjectCard
+            name={project.name}
+            description={project.description}
+            url={project.url}
+            image={project.image}
+          />
+        ))
+      }
+    </div>
+  </main>
+</section>
+<Footer />
 
-<style>
-	
-</style>
+<style></style>
